@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор случайных чисел от 1 до 10000</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+        }
+        .container {
+            margin: 150px auto 20px;
+            width: 600px;
+        }
+        .btn-description {
+            font-family: sans-serif;
+            text-align: center;
+            color: #efefef;
+        }
+        #gennum {
+            display: block;
+            margin: 60px auto 0;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            font-size: 24px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgb(145, 92, 182);
+            padding: 15px 40px;
+            border-radius: 4px;
+            font-weight: normal;
+            transition: all 0.1s ease-in-out;
+            box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+        }
+        #gennum:hover {
+            color: rgba(255, 255, 255, 1);
+            box-shadow: 0 7px 30px rgba(145, 92, 182, .4);
+        }
+        #gennum:active {
+            color: rgba(255, 255, 255, 0.8);
+            box-shadow: none;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="btn-description">Нажмите на кнопку, чтобы сгенерировать новое число</h2>
+    </div>
+    <form class="w-100" action="add_task/" method="post">
+        <button type="submit" id="gennum">Работать!</button>
+    </form>
+    <div class="col-8">
+            <h1>Ранее сгенерированные числа:</h1>
+            <div class="col-8" id="updatedis">
+                <div class="tab-pane align-center"
+                     style="align-items: center; height: 30rem; overflow: auto;" id="list-profile"
+                     aria-labelledby="list-profile-list">
+                    {% if GenerateTasks|length != 0 %}
+                        {% for GenerateTask in GenerateTasks %}
+                            <div class="col-8">
+                                {{ GenerateTask.result }}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        Никто ещё ничего не генерировал!
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+    <script type="text/javascript">
+        setInterval(() => location.reload(), 5 * 1000)
+    </script>
+</body>
+</html>
