@@ -7,3 +7,4 @@ joblib==0.14.1
 python-dateutil==2.8.1
 pytz==2019.3
 sqlparse==0.3.0
+psycopg2-binary==2.8.4
