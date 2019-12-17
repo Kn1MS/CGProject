@@ -56,7 +56,7 @@
     <div class="container">
         <h2 class="btn-description">Нажмите на кнопку, чтобы сгенерировать новое число</h2>
     </div>
-    <form class="w-100" action="create_task/" method="post">
+    <form class="w-100" action="create_task/" method="post">{% csrf_token %}
         <button type="submit" id="gennum">Работать!</button>
     </form>
     <div class="col-8">
