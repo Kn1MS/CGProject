@@ -61,26 +61,24 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="btn-description">Нажмите на кнопку, чтобы сгенерировать новое число</h1>
+        <h1 class="btn-description">Нажмите на кнопку, чтобы сгенерировать новое число<br />(от 0 до 100)</h1>
     </div>
     <form class="w-100" action="create_task/" method="post">{% csrf_token %}
         <button type="submit" id="gennum">Работать!</button>
     </form>
     <div class="container">
             <h1 class="gened-nums">Cгенерированные числа:</h1>
-            <div class="col-8" id="updatedis">
-                <div class="tab-pane align-center"
-                     style="align-items: center; height: 30rem; overflow: auto">
-                    {% if GenerateTasks|length != 0 %}
-                        {% for GenerateTask in GenerateTasks %}
-                            <div class="col-8">
-                                {{ GenerateTask.result }}
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        Никто ещё ничего не генерировал!
-                    {% endif %}
-                </div>
+            <div class="col-8 align-center"
+                 style="align-items: center; height: 30rem; overflow: auto">
+                {% if GenerateTasks|length != 0 %}
+                    {% for GenerateTask in GenerateTasks %}
+                        <div class="col-8">
+                            {{ GenerateTask.result }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    Никто ещё ничего не генерировал!
+                {% endif %}
             </div>
     </div>
     <script type="text/javascript">
