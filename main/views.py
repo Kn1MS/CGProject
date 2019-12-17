@@ -11,8 +11,8 @@ def MainView(request):
     return render(request, "main/index.html", {"GenerateTasks": TasksSerializer.data})
 
 def CreateTask(request):
-    NumberGenerateTask = NumberGenerateTask()
-    NumberGenerateTask.save()
+    GenerateTask = NumberGenerateTask()
+    GenerateTask.save()
     GenerateNumbers()
     return redirect('/')
 
