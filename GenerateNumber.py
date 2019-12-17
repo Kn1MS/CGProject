@@ -11,11 +11,11 @@ conn = psycopg2.connect(host = host, dbname = database, user = user, password = 
 conn.autocommit = True
 
 with conn.cursor() as cursor:
-	cursor.execute("SELECT id, result FROM generate_tasks WHERE status='Pending'")
+	cursor.execute("SELECT id, result FROM main_numbergeneratetask WHERE status='Pending'")
 	GenerateTasks = cursor.fetchall()
 	for GenerateTask in GenerateTasks:
    		time.sleep(2)
    		temp = random.randint(1, 100)
-    	cursor.execute("UPDATE generate_tasks SET status='Done', result = %s WHERE id=%s", (temp, GenerateTask[0],))
+    	cursor.execute("UPDATE main_numbergeneratetask SET status='Done', result = %s WHERE id=%s", (temp, GenerateTask[0],))
 
 conn.close()

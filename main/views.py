@@ -6,9 +6,9 @@ import subprocess
 # Create your views here.
 
 def MainView(request):
-    GenerateTasks = Task.objects.filter(status="Solved").order_by('-id')
-    TasksSerializer = TaskSerializer(GenerateTasks, many=True)
-    return render(request, "main/index.html", {"GenerateTasks": GenerateTasks.data})
+    GenerateTasks = NumberGenerateTask.objects.filter(status="Done").order_by('-id')
+    TasksSerializer = Serializer(GenerateTasks, many=True)
+    return render(request, "main/index.html", {"GenerateTasks": TasksSerializer.data})
 
 def CreateTask(request):
     NumberGenerateTask = NumberGenerateTask()
